@@ -1,14 +1,14 @@
 ![](https://pot-odds.netlify.app/logo.png)
 
 # Pot Odds
-Шансы на улучшение и шансы банка в покере: калькулятор
+Chances of Improvement and Odds of Poker Pot: Calculator
 
-## Демонстрация
+## Demonstration
 https://pot-odds.netlify.app/
 
 [Скрин](https://pot-odds.netlify.app/screenshot.png)
 
-## Под капотом
+## Under the hood
                 
 + Vue.js
 + vue-observe-visibility
