@@ -3,7 +3,7 @@ module.exports = {
   pages: {
     index: {
       entry: "src/main.js",
-      title: "Шансы на улучшение и шансы банка в покере: калькулятор",
+      title: "Chances of Improvement and Odds of Poker Pot: Calculator",
     },
   },
 };

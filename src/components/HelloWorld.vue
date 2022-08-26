@@ -5,43 +5,37 @@
         <img src="@/assets/logo.png" srcset="@/assets/logo@2x.png 2x" />
       </div>
       <h1 class="site-heading">
-        <div>Шансы на улучшение и шансы банка в покере:</div>
-        <div>калькулятор</div>
+        <div>Chances of Improvement and Odds of Poker Pot:</div>
+        <div>calculator</div>
       </h1>
     </header>
     <section class="out-section">
       <div class="container">
-        <h2 class="section-heading">Шансы на улучшение</h2>
+        <h2 class="section-heading">Chances of improvement</h2>
         <div class="section-text">
           <p>
-            <strong>Ауты в покере</strong> — карты, которые могут улучшить руку
-            до выигрышной.
+            <strong>Poker Outs</strong> — cards that can improve the hand to winning.
           </p>
           <p>
-            В нашем случае — все карты, которые на оставшихся раундах составят
-            стрит или флеш.
+            In our case, all the cards that will be drawn up on the turn and river that make striaghts, flush draws.
           </p>
           <p>
-            Неполные комбинации карт называются
-            <strong>дро-комбинации</strong> (отсюда названия
-            <strong>стрит-дро</strong> и <strong>флеш-дро</strong>).
+            Incomplete combinations of cards are called
+            <strong>draw-combinations</strong> (hence the name
+            <strong>straight-draw</strong> and <strong>flush draw</strong>).
           </p>
           <p>
-            <strong>Как считать ауты в покере?</strong> Определяем каких карт не
-            хватает до составления стрита или флеша, и подсчитываем сколько
-            таких карт осталось среди неизвестных нам.
+            <strong>How to Count Outs in Poker?</strong> We determine which cards are not enough to complete a straight or flush, and count how much of such cards remained among those unknown to us.
           </p>
           <p>
-            <strong>Шансы на улучшение</strong> — это шансы составить полную
-            комбинацию. Рассчитывается как соотношение аутов и неизвестных карт.
+            <strong>Chances of improvement</strong> — it's a chance to make the full Combination. Calculated as the ratio of outs and unknown cards.
           </p>
           <p class="text-center">
             <span class="formula">A : B</span> или
             <span class="formula">(A / B) * 100%</span>
           </p>
           <p>
-            <strong>Калькулятор аутов в покере</strong> поможет наглядно
-            разобраться с подсчетами.
+            <strong>Poker Outs Calculator will help you visually understand the calculations.
           </p>
         </div>
         <div class="deck-tools">
@@ -50,16 +44,15 @@
               Свои карты
             </li>
             <li :class="[{ active: !myCards }, 'opp']" @click="myCards = false">
-              Карты оппонентов
+              Opponent cards
             </li>
           </ul>
         </div>
         <div class="instruction-heading" v-if="myCards">
-          Выберите 5-6 карт (2 в руке и 3-4 на столе)
+          Choose 5-6 cards (2 in hand and 3-4 on table)
         </div>
         <div class="instruction-heading" v-if="!myCards">
-          Выберите предполагаемые карты оппонентов, тем самым исключив их из
-          расчета
+          Select the intended cards of opponents, thereby excluding them from Calculation
         </div>
         <div class="deck-wrapper">
           <ul class="ui-deck">
@@ -136,7 +129,7 @@
                     />
                   </svg>
                 </div>
-                <div class="message__text">Выбрано недостаточно карт</div>
+                <div class="message__text">Not enough cards selected</div>
               </div>
             </li>
           </ul>
@@ -149,14 +142,14 @@
           "
         >
           <div class="outs-summary__section" v-if="completed.length">
-            <div class="outs-heading">Полные комбинации</div>
+            <div class="outs-heading">Complete combinations</div>
             <table class="draw-table">
               <tbody>
                 <tr
                   v-for="(comb, index) in completed"
                   v-bind:key="`comb-${index}`"
                 >
-                  <td>{{ comb.type === "flush" ? "Флеш" : "Стрит" }}</td>
+                  <td>{{ comb.type === "flush" ? "Flush" : "Straight" }}</td>
                   <td>
                     <ul class="draw-list">
                       <li
@@ -190,7 +183,7 @@
             </table>
           </div>
           <div class="outs-summary__section" v-if="draws && draws.length">
-            <div class="outs-heading">Дро-комбинации</div>
+            <div class="outs-heading">Draw-combinations</div>
             <table class="draw-table">
               <thead>
                 <tr>
@@ -233,7 +226,7 @@
                   <td class="td-outs">
                     <span class="text-out"
                       >{{ draw.outs.length
-                      }}<span class="mobile-only"> аутов</span></span
+                      }}<span class="mobile-only">Outs</span></span
                     >
                   </td>
                   <td class="td-odds">
@@ -245,7 +238,7 @@
               </tbody>
             </table>
 
-            <div class="outs-heading">Итого</div>
+            <div class="outs-heading">Total</div>
             <div>
               Ауты:
               <span class="big-number text-out">{{ allOuts.length }}</span>
@@ -258,7 +251,7 @@
           </div>
           <div class="outs-summary__section" v-else>
             <div class="outs-heading outs-heading--single">
-              Нет дро-комбинаций
+              No draw combinations
             </div>
           </div>
         </div>
@@ -271,27 +264,26 @@
           "
         >
           <div class="outs-heading outs-heading--single">
-            У вас нет подходящих комбинаций
+            You don't have the right combinations
           </div>
         </div>
       </div>
     </section>
     <section class="pot-section">
       <div class="container">
-        <h2 class="section-heading">Шансы банка</h2>
+        <h2 class="section-heading">Chances to Win</h2>
         <div class="section-text">
           <p>
-            <strong>Шансы банка в покере</strong> — это соотношение коллируемой
-            ставки и размера банка.
+            <strong>Poker Pot Odds</strong> — it is the collated ratio rate and size of the pot.
           </p>
           <p class="text-center">
-            <span class="formula">A : B</span> или
+            <span class="formula">A : B</span> or
             <span class="formula">(A / (B + A)) * 100%</span>
           </p>
-          <p>Ниже представлен <strong>калькулятор шансов банка</strong>.</p>
+          <p>Below <strong>Pot odds calculator</strong>.</p>
         </div>
         <div class="instruction-heading">
-          Укажите сумму ставки и сумму в банке
+          Specify the amount of the bet and the amount in the pot
         </div>
         <div class="pot-form">
           <div class="pot-form__list">
@@ -336,14 +328,14 @@
                   </svg>
                 </div>
                 <div class="message__text">
-                  Укажите корректные размеры ставки и банка
+                  Specify the correct size of the bet and the pot
                 </div>
               </div>
             </li>
           </ul>
         </div>
         <div class="pot-results" v-if="potOdds">
-          Шансы <span class="big-number text-out">{{ potOdds.ratio }}</span> или
+          Odds <span class="big-number text-out">{{ potOdds.ratio }}</span> или
           <span class="big-number text-out">{{ potOdds.perc }}%</span>
         </div>
       </div>
@@ -354,17 +346,16 @@
       v-observe-visibility="visibilityChanged"
     >
       <div class="container">
-        <div class="section-heading">Рекомендация</div>
+        <div class="section-heading">Recommendation</div>
         <div class="section-text">
           <p>
-            Знание <strong>шансов на улучшение</strong> и
-            <strong>шансов банка</strong> позволяет принять решение о выгодности
-            ставки.
+            Knowledge <strong>chances of improvement</strong> and
+            <strong>impliled odds</strong> allows you to make a decision on the profitability of calling a bet.
           </p>
           <p>
-            Считается, что ставка выгодна, если
-            <strong>шансы на улучшение</strong> выше
-            <strong>шансов банка</strong>.
+            It is considered that the call is profitable if
+            <strong>chances of improvement</strong> are greater than
+            <strong>the pott odds</strong>.
           </p>
         </div>
         <div
@@ -393,10 +384,10 @@
                       completed.length === 0
                   "
                 >
-                  Произведите расчет шансов на улучшение и банка
+                  Calculate the chances of improvement and the bank
                 </div>
                 <div class="message__text" v-if="completed.length > 0">
-                  Нет дро-комбинаций, расчет не требуется
+                  No draw combinations, no calculation required
                 </div>
               </div>
             </li>
@@ -406,7 +397,7 @@
           <table class="prediction-table">
             <tbody>
               <tr>
-                <td>Шансы на улучшение</td>
+                <td>Chances of improvement</td>
                 <td>
                   <span class="text-out"
                     ><span class="big-number">{{ allOdds.ratio }}</span> или
@@ -421,7 +412,7 @@
                 </td>
               </tr>
               <tr>
-                <td>Шансы банка</td>
+                <td>Chances of the bank</td>
                 <td>
                   <span class="text-out"
                     ><span class="big-number">{{ potOdds.ratio }}</span> или
@@ -437,10 +428,10 @@
             </tbody>
           </table>
           <div class="prediction">
-            Рекомендуется
+            Recommended
             <br />
             <span :class="[shouldCall ? 'yes' : 'no', 'big-number']">{{
-              shouldCall ? "СТАВИТЬ" : "НЕ СТАВИТЬ"
+              shouldCall ? "Call" : "Does not Call"
             }}</span>
           </div>
         </div>
