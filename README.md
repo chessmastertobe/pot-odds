@@ -6,7 +6,7 @@ Chances of Improvement and Odds of Poker Pot: Calculator
 ## Demonstration
 https://potodds.aspiringpokerpro.com/
 
-## [Скрин](https://pot-odds.netlify.app/screenshot.png)
+## [Screen Shot](https://pot-odds.netlify.app/screenshot.png)
 
 ## Under the hood
                 
